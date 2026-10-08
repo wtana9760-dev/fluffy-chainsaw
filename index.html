@@ -148,7 +148,7 @@ input[type="text"], input[type="number"] {
 
 <div class="ticket" id="printArea">
   <img src="gclub.png" width="12%">
-  <div class="watermark" id="watermarkText">lion777 ONLINE</div>
+  <div class="watermark" id="watermarkText">ONLINE</div>
   <div class="header" id="datetime"></div>
   <div class="title">ຢູ່ເຊີ້: <span id="nameDisplay"></span></div>
   <div class="info" id="codeDisplay"></div>
@@ -194,7 +194,7 @@ function updateDateTime(){
   const date = now.toLocaleDateString("lo-LA");
   const time = now.toLocaleTimeString("lo-LA",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
   document.getElementById("datetime").textContent = `${day}, ${date} ${time}`;
-  document.getElementById("watermarkText").innerHTML = `LION777 ONLINE<br>${date} ${time}`;
+  document.getElementById("watermarkText").innerHTML = ` ONLINE<br>${date} ${time}`;
 }
 
 setInterval(updateDateTime,1000);
