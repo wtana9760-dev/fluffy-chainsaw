@@ -10,10 +10,13 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Lao&display=swap');
 
-* { font-family: 'Noto Sans Lao', sans-serif; box-sizing: border-box; }
+* {
+  font-family: 'Noto Sans Lao', sans-serif;
+  box-sizing: border-box;
+}
 
 body {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   background-image: url("cafe.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,7 +25,7 @@ body {
   padding: 20px;
 }
 
-/* ===== ปุ่มสวยงาม + มน + shadow ===== */
+/* Buttons */
 button {
   padding: 10px 16px;
   border: none;
@@ -34,13 +37,16 @@ button {
   transition: 0.25s;
 }
 
-button:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
 
 .btn-blue { background: #1E90FF; color: #fff; }
 .btn-green { background: #28A745; color: #fff; }
 .btn-yellow { background: #FFC107; color: #fff; }
 
-/* ===== Toast Popup ===== */
+/* Toast */
 #toast {
   visibility: hidden;
   min-width: 220px;
@@ -49,7 +55,7 @@ button:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.
   text-align: center;
   border-radius: 12px;
   padding: 14px;
-  position: fixed   ;
+  position: fixed;
   z-index: 9999;
   left: 50%;
   bottom: 40px;
@@ -59,12 +65,16 @@ button:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.
   transition: opacity 0.4s, bottom 0.4s;
 }
 
-#toast.show { visibility: visible; opacity: 1; bottom: 60px; }
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 60px;
+}
 
-/* ===== Ticket ===== */
+/* Ticket */
 .ticket {
   position: relative;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #999;
   max-width: 400px;
   width: 100%;
@@ -75,24 +85,61 @@ button:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.
   border-radius: 14px;
 }
 
-.header { background-color: #d6e6f3; padding: 6px; font-weight: bold; border-bottom: 1px solid #aaa; border-radius: 10px; }
-
-.title { margin: 15px 0; font-size: 1.2em; }
-.info { font-size: 1.4em; margin: 5px 0; font-weight: 600; }
-.note { font-size: 0.9em; margin-top: 15px; color: #333; line-height: 1.3em; }
-.watermark {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%) rotate(-30deg);
-  font-size: 2em; color: rgba(255,0,0,0.1);
-  pointer-events: none; z-index: 0; white-space: nowrap;
-  text-align: center; line-height: 1.2em;
+.header {
+  background-color: #d6e6f3;
+  padding: 6px;
+  font-weight: bold;
+  border-bottom: 1px solid #aaa;
+  border-radius: 10px;
 }
 
-table { margin: 20px auto; border-collapse: collapse; width: 100%; max-width: 400px; }
-td { padding: 6px; display: block; text-align: left; width: 100%; }
+.title {
+  margin: 15px 0;
+  font-size: 1.2em;
+}
 
-/* ===== Label ใหญ่ ===== */
+.info {
+  font-size: 1.4em;
+  margin: 5px 0;
+  font-weight: 600;
+}
+
+.note {
+  font-size: 0.9em;
+  margin-top: 15px;
+  color: #333;
+  line-height: 1.6em;
+  white-space: pre-line;
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 2em;
+  color: rgba(255, 0, 0, 0.1);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.2em;
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 400px;
+}
+
+td {
+  padding: 6px;
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
 table td:first-child {
   font-size: 1.3em;
   font-weight: 700;
@@ -100,7 +147,8 @@ table td:first-child {
   margin-bottom: 4px;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"],
+input[type="number"] {
   padding: 7px;
   width: 100%;
   font-size: 1em;
@@ -109,11 +157,25 @@ input[type="text"], input[type="number"] {
   border: 1px solid #aaa;
 }
 
-/* ===== Print CSS ===== */
+/* Print */
 @media print {
-  body * { visibility: hidden; }
-  .ticket, .ticket * { visibility: visible; }
-  .ticket { position: absolute; left:0; top:0; width:100%; box-shadow:none; margin:0; }
+  body * {
+    visibility: hidden;
+  }
+
+  .ticket,
+  .ticket * {
+    visibility: visible;
+  }
+
+  .ticket {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    margin: 0;
+  }
 }
 </style>
 </head>
@@ -136,7 +198,9 @@ input[type="text"], input[type="number"] {
   </tr>
   <tr>
     <td>ຈຳນວນເງິນ:</td>
-    <td><input type="number" id="amountInput" value="25000" min="0" step="100"></td>
+    <td>
+      <input type="number" id="amountInput" value="25000" min="0" step="100">
+    </td>
   </tr>
 </table>
 
@@ -147,7 +211,7 @@ input[type="text"], input[type="number"] {
 <div id="toast">ສຳເລັດ!</div>
 
 <div class="ticket" id="printArea">
-  <img src="gclub.png" width="12%">
+  <!-- <img src="gclub.png" width="12%" alt="logo"> -->
   <div class="watermark" id="watermarkText">ONLINE</div>
   <div class="header" id="datetime"></div>
   <div class="title">ຢູ່ເຊີ້: <span id="nameDisplay"></span></div>
@@ -157,67 +221,85 @@ input[type="text"], input[type="number"] {
 </div>
 
 <script>
-/* Toast function */
-function showToast(msg){
-  const x = document.getElementById("toast");
-  x.innerText = msg;
-  x.classList.add("show");
-  setTimeout(()=>x.classList.remove("show"),2000);
+function showToast(msg) {
+  const toast = document.getElementById("toast");
+  toast.innerText = msg;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2000);
 }
 
-/* Update info */
-function updateInfo(){
-  const nameVal = document.getElementById("nameInput").value.trim() || "ບໍ່ມີຊື່";
-  const codeVal = Math.floor(10000+Math.random()*90000).toString();
-  const amountVal = Number(document.getElementById("amountInput").value) || 0;
+/* Update ticket details */
+function updateInfo() {
+  const nameVal =
+    document.getElementById("nameInput").value.trim() || "ບໍ່ມີຊື່";
+
+  const codeVal =
+    Math.floor(10000 + Math.random() * 90000).toString();
+
+  const amountVal =
+    Number(document.getElementById("amountInput").value) || 0;
 
   document.getElementById("nameDisplay").textContent = nameVal;
   document.getElementById("codeDisplay").textContent = codeVal;
-  document.getElementById("amountDisplay").textContent = amountVal.toLocaleString("lo-LA")+" ບາດ";
+  document.getElementById("amountDisplay").textContent =
+    amountVal.toLocaleString("lo-LA") + " ບາດ";
   document.getElementById("codeInput").value = codeVal;
 
-  const tax = amountVal>=50000 ? amountVal*0.1:700;
+  const remainder = 700;
 
   document.getElementById("noteBox").innerText =
-`${amountVal.toLocaleString("lo-LA")} ເເຈ໊ກພ໋ອດ20,000ຂື້ນໄປ ຫັກ20%
-ຈ່າຍສູງສຸດ200,000ບາດ 
-ເຫຼດເງີນ ${tax.toLocaleString("lo-LA")} ບາດ`;
+`ແຈ໊ກພ໋ອດ 20,000ບາດຂຶ້ນໄປ ຫັກ20%
+ຈ່າຍສູງສຸດ 200,000 ບາດ
+ເຫຼດເງິນ ${remainder.toLocaleString("lo-LA")} ບາດ`;
 
   showToast("ອັບເດດສຳເລັດ!");
 }
 
-/* Datetime */
-function updateDateTime(){
+/* Date and time */
+function updateDateTime() {
   const now = new Date();
-  const days = ["ທິດ","ຈັນ","ຄານ","ພຸດ","ພະຫັດ","ສຸກ","ເສົາ"];
+  const days = ["ທິດ", "ຈັນ", "ຄານ", "ພຸດ", "ພະຫັດ", "ສຸກ", "ເສົາ"];
   const day = days[now.getDay()];
   const date = now.toLocaleDateString("lo-LA");
-  const time = now.toLocaleTimeString("lo-LA",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
-  document.getElementById("datetime").textContent = `${day}, ${date} ${time}`;
-  document.getElementById("watermarkText").innerHTML = ` ONLINE<br>${date} ${time}`;
+  const time = now.toLocaleTimeString("lo-LA", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  });
+
+  document.getElementById("datetime").textContent =
+    `${day}, ${date} ${time}`;
+
+  document.getElementById("watermarkText").innerHTML =
+    `ONLINE<br>${date} ${time}`;
 }
 
-setInterval(updateDateTime,1000);
+setInterval(updateDateTime, 1000);
 updateDateTime();
 
 /* Copy code */
-function copyCode(){
+function copyCode() {
   const code = document.getElementById("codeInput").value;
   navigator.clipboard.writeText(code);
   showToast("ຄັດລອກລະຫັດແລ້ວ!");
 }
 
-/* Copy all */
-function copyAll(){
-  const text = `${document.getElementById("datetime").textContent}
+/* Copy all ticket details */
+function copyAll() {
+  const text =
+`${document.getElementById("datetime").textContent}
 ຢູ່ເຊີ້: ${document.getElementById("nameDisplay").textContent}
 ລະຫັດ: ${document.getElementById("codeDisplay").textContent}
 ເຄຣດິດ: ${document.getElementById("amountDisplay").textContent}
 
 ${document.getElementById("noteBox").innerText}`;
+
   navigator.clipboard.writeText(text);
   showToast("ຄັດລອກຂໍ້ມູນສຳເລັດ!");
 }
+
+/* Show the default amount and jackpot note on page load */
+updateInfo();
 </script>
 
 </body>
